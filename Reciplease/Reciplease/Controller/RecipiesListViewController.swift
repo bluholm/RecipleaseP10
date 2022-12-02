@@ -11,14 +11,16 @@ class RecipiesListViewController: UIViewController {
 
     //MARK: - Extension UITableViewDataSource
     
-    var recipies = [String]()
+    private var recipies = [String]()
+    private let cellIdentifier = "cellRecipiesIdentification"
     
     //MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        recipies.append("Pizza Margarita")
+        recipies.append("Entree tomates basil")
     }
 }
 
@@ -26,12 +28,12 @@ class RecipiesListViewController: UIViewController {
 
 extension RecipiesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return recipies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        cell.textLabel?.text = recipies[indexPath.row]
+        return cell
     }
-    
-    
 }
