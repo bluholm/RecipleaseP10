@@ -17,6 +17,7 @@
 		0E41F7F3293A0439000B6630 /* ExtensionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F2293A0439000B6630 /* ExtensionsView.swift */; };
 		0E41F7F7293A0567000B6630 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F6293A0567000B6630 /* TabBarView.swift */; };
 		0E41F7FA293A350A000B6630 /* RecipiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */; };
+		0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0E41F7F2293A0439000B6630 /* ExtensionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsView.swift; sourceTree = "<group>"; };
 		0E41F7F6293A0567000B6630 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesListViewController.swift; sourceTree = "<group>"; };
+		0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				0E41F7E32939C05F000B6630 /* LaunchScreen.storyboard */,
 				0E41F7DB2939C05E000B6630 /* Main.storyboard */,
 				0E41F7F6293A0567000B6630 /* TabBarView.swift */,
+				0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				0E41F7DA2939C05E000B6630 /* ViewController.swift in Sources */,
 				0E41F7D62939C05E000B6630 /* AppDelegate.swift in Sources */,
 				0E41F7FA293A350A000B6630 /* RecipiesListViewController.swift in Sources */,
+				0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */,
 				0E41F7F7293A0567000B6630 /* TabBarView.swift in Sources */,
 				0E41F7D82939C05E000B6630 /* SceneDelegate.swift in Sources */,
 			);

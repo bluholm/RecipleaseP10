@@ -32,8 +32,11 @@ extension RecipiesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = recipies[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecipiesTableViewCell else {
+           return UITableViewCell()
+        }
+        //recipies[indexPath.row]
+        cell.configure(image: "", title: "title", subtitle: "vide", note: "2.5k", time: "25m")
         return cell
     }
 }
