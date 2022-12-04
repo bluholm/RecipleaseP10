@@ -40,6 +40,10 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        ingredientTextField.resignFirstResponder()
+    }
+    
 }
 
     //MARK: -  UITableViewDataSource
@@ -52,5 +56,14 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell.textLabel?.text = keywords[indexPath.row]
         return cell
+    }
+}
+
+//MARK: - Extension KeyBoard Should Return
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        ingredientTextField.resignFirstResponder()
+        return true
     }
 }

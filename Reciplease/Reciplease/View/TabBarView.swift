@@ -24,7 +24,6 @@ class TabBarViewController: UITabBarController {
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
 
         tabBarController?.tabBar.barTintColor = UIColor.brown
-        let tabBarHeight = tabBar.frame.size.height
         self.tabBar.tintColor = .black
         self.tabBar.backgroundColor = UIColor.white
         self.tabBar.layer.masksToBounds = true

@@ -55,6 +55,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="F3t-Aa-pGb" id="inH-23-v2B"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WH-SJ-bAs">
                                         <rect key="frame" x="330" y="53" width="55" height="35"/>
@@ -72,6 +75,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv8-Vc-fHS">
                                 <rect key="frame" x="8" y="262" width="129" height="25"/>
@@ -130,6 +134,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Du-hB-WvJ"/>
                         <color key="backgroundColor" red="0.76470589639999997" green="0.30980393290000002" blue="0.1294117719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="HGm-6F-2Je" appends="YES" id="WVb-Ug-xxV"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="WF2-4M-xZZ">
                         <barButtonItem key="backBarButtonItem" title="back" id="ECk-fE-0sL"/>
@@ -140,6 +148,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3J-QF-roA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HGm-6F-2Je">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="F3t-Aa-pGb" id="aYI-93-2PF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1721.3740458015266" y="-45.070422535211272"/>
         </scene>
@@ -392,12 +405,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="227" id="xyx-rD-DaX"/>
                                 </constraints>
-                                <mutableString key="text">Step 1
+                                <string key="text">Step 1
 Preheat oven to 220C/200C fan-forced. Cook noodles, with flavour sachets, in a large saucepan of boiling water for 1 minute or until almost cooked (noodles should be slightly softened). Drain. Transfer to a medium bowl. Add egg. Toss to combine.
                                                                                                                     
 Step 2
 Heat oil in a 22cm (base) cast-iron or ovenproof frying pan over medium heat. Add noodle mixture. Using a spatula, press noodles over base of pan and compress. Reduce heat to low. Sprinkle noodles with half the pizza cheese. Spread with pasta sauce. Top with remaining pizza cheese and salami. Transfer pan to oven. Bake pizza for 15 minutes or until golden. Stand for 5 minutes.
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
