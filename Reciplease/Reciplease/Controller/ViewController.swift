@@ -57,6 +57,12 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = keywords[indexPath.row]
         return cell
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            keywords.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
 
 //MARK: - Extension KeyBoard Should Return
