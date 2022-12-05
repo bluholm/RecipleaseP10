@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var ingredientTextField: UITextField!
-    private var keywords = [String]()
     private let cellIdentifier = "ingredientList"
+    private var keywords = [String]()
     
     //MARK: - Life Cycle Method
     
@@ -22,6 +22,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
             ingredientTextField.addBottomBorder()
         
+    }
+    
+    //MARK: - Prepare Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! RecipiesListViewController
+        destinationViewController.keyword = keywords
     }
     
     //MARK: - Actions
