@@ -16,6 +16,7 @@ final class RecipiesListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     private var recipiesList = [Recipie]()
     var keyword = [String]()
+    private let defaultIngredient = "tomato,basil"
     private let cellIdentifier = "cellRecipiesIdentification"
     private let model = RecipiesService()
     
@@ -23,29 +24,26 @@ final class RecipiesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setIngredients(keywords: keyword)
-        
         toggleActivityIndicator.isHidden = false
         loadingLabel.isHidden = false
-        
-        
         getRecipies()
     }
     
     //MARK: - Privates
     
     private func  setIngredients(keywords: [String]) {
-        var element = ""
-        keywords.forEach {
-            element += $0+","
+        if !keywords.isEmpty {
+            var ingredients = keywords.map { $0+"," }.joined()
+            ingredients.removeLast()
+            model.ingredients = ingredients
+        } else {
+            model.ingredients = defaultIngredient
         }
-        element.removeLast()
-        model.ingredients = element
     }
     
     func getRecipies() {
+        setIngredients(keywords: keyword)
         model.getRecipies { result in
-            print(result)
             switch result {
             case .success(let value):
                 value.hits.forEach { hit in

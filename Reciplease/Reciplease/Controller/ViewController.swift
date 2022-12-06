@@ -24,12 +24,6 @@ class ViewController: UIViewController {
         
     }
     
-    //MARK: - Prepare Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as! RecipiesListViewController
-        destinationViewController.keyword = keywords
-    }
-    
     //MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -50,9 +44,16 @@ class ViewController: UIViewController {
         ingredientTextField.resignFirstResponder()
     }
     
+    //MARK: - Prepare Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! RecipiesListViewController
+        destinationViewController.keyword = keywords
+    }
 }
 
     //MARK: -  UITableViewDataSource
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return keywords.count

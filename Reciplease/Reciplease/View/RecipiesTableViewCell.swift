@@ -27,12 +27,11 @@ class RecipiesTableViewCell: UITableViewCell {
     
     //MARK: - Pubic
     func configure(image: String, title: String, subtitle: String, note: String, time: String) {
-        imageBackground.load(urlImageString: image)
+        imageBackground.load(from: image)
         titleLabel.text = title
         subtitleLabel.text = subtitle
         noteLabel.text = note
         timeLabel.text = time
-        
     }
 }
 
@@ -52,9 +51,10 @@ extension UIView {
     }
 }
 
+
 extension UIImageView {
     /// Load an image from his URL
-    func load(urlImageString: String?) {
+    func load(from urlImageString: String?) {
         guard let urlImageString = urlImageString else { return }
         guard let urlImage = URL(string: urlImageString) else { return }
         DispatchQueue.global().async { [weak self] in
