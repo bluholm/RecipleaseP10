@@ -14,12 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var ingredientTextField: UITextField!
     private let cellIdentifier = "ingredientList"
-    private var keywords = [String]()
+    //private var keywords = [String]()
+    private var keywords = ["lamb","mint"]
     
     //MARK: - Life Cycle Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Thread.sleep(forTimeInterval: 10.0)
+        
             ingredientTextField.addBottomBorder()
         
     }

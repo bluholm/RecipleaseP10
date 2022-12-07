@@ -19,14 +19,22 @@
                                 <rect key="frame" x="76" y="362" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="gab-Jw-3gT">
+                                <rect key="frame" x="186" y="472" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JHL-9V-K9v"/>
                         <color key="backgroundColor" red="0.76470589639999997" green="0.30980393290000002" blue="0.1294117719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <connections>
+                        <outlet property="loadingActivityIndicator" destination="gab-Jw-3gT" id="cqX-c0-Vns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyR-Om-uvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="674"/>
+            <point key="canvasLocation" x="529" y="680"/>
         </scene>
     </scenes>
     <resources>

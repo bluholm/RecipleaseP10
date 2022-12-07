@@ -72,7 +72,7 @@ final class RecipiesListViewController: UIViewController {
 
 //MARK: - Extension UITableViewDataSource
 
-extension RecipiesListViewController: UITableViewDataSource {
+extension RecipiesListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipiesList.count
     }
@@ -81,12 +81,27 @@ extension RecipiesListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecipiesTableViewCell else {
            return UITableViewCell()
         }
+        var time: String {
+            if recipiesList[indexPath.row].time == 0.0 {
+                return "N/A"
+            } else {
+                return String(Int(recipiesList[indexPath.row].time))+"m"
+            }
+        }
+
         cell.configure(image: recipiesList[indexPath.row].image,
                        title: recipiesList[indexPath.row].title,
                        subtitle: recipiesList[indexPath.row].ingredients[0],
                        note: recipiesList[indexPath.row].yield,
-                       time: String(recipiesList[indexPath.row].time)+"m"
+                       time: time
         )
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "resume") as? ResumeViewController {
+            vc.recipe = recipiesList[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

@@ -11,6 +11,7 @@
 		0E1B6C51293DA5BB00A9CEBB /* Recipie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C50293DA5BB00A9CEBB /* Recipie.swift */; };
 		0E1B6C53293DEDC200A9CEBB /* RecipiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C52293DEDC200A9CEBB /* RecipiesService.swift */; };
 		0E1B6C55293E00AF00A9CEBB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C54293E00AF00A9CEBB /* NetworkError.swift */; };
+		0E1B6C58293F030800A9CEBB /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */; };
 		0E41F7D62939C05E000B6630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7D52939C05E000B6630 /* AppDelegate.swift */; };
 		0E41F7D82939C05E000B6630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7D72939C05E000B6630 /* SceneDelegate.swift */; };
 		0E41F7DA2939C05E000B6630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7D92939C05E000B6630 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		0E1B6C50293DA5BB00A9CEBB /* Recipie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipie.swift; sourceTree = "<group>"; };
 		0E1B6C52293DEDC200A9CEBB /* RecipiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesService.swift; sourceTree = "<group>"; };
 		0E1B6C54293E00AF00A9CEBB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		0E41F7D22939C05E000B6630 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E41F7D52939C05E000B6630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E41F7D72939C05E000B6630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				0E41F7D92939C05E000B6630 /* ViewController.swift */,
 				0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */,
+				0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				0E1B6C53293DEDC200A9CEBB /* RecipiesService.swift in Sources */,
 				0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */,
 				0E41F7F7293A0567000B6630 /* TabBarView.swift in Sources */,
+				0E1B6C58293F030800A9CEBB /* ResumeViewController.swift in Sources */,
 				0E1B6C55293E00AF00A9CEBB /* NetworkError.swift in Sources */,
 				0E1B6C4E293D9AD500A9CEBB /* RecipiesJSON.swift in Sources */,
 				0E41F7D82939C05E000B6630 /* SceneDelegate.swift in Sources */,
