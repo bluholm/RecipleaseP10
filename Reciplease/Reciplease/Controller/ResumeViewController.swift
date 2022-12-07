@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ResumeViewController: UIViewController {
 
@@ -30,24 +31,48 @@ class ResumeViewController: UIViewController {
         super.viewDidLoad()
         gradientView.applyGradient()
         
-        var ingredients: String {
-            recipe.ingredients.map { $0+"\n" }.joined()
+        
+        let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+
+        do {
+            guard let result = try? AppDelegate.viewContext.fetch(request) else {
+                return
+            }
+            for data in result {
+                debugPrint(data.value(forKey: "name") as? String ?? "")
+            }
+        } catch let error as NSError {
+            debugPrint(error)
         }
+        
         
         imageView.load(from: recipe.image)
         titleLabel.text = recipe.title
-        ingredientTextView.text = ingredients
         timeLabel.text = String(Int(recipe.time))+"m"
         yieldLabel.text = recipe.yield
+        var ingredients: String {
+            recipe.ingredients.map { $0+"\n" }.joined()
+        }
+        ingredientTextView.text = ingredients
         
     }
     
     //MARK: - Actions
     
     @IBAction func favoriteButtonDidTapped(_ sender: Any) {
+        let favorites = Favorites(context: AppDelegate.viewContext)
+        favorites.title = "test"
+        do {
+            try AppDelegate.viewContext.save()
+            print("save")
+        } catch {
+            print("error while saving \(favorites)")
+        }
     }
     
     @IBAction func directionButtonDidTapped(_ sender: Any) {
+       
+        
     }
     
 }

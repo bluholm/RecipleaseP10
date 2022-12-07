@@ -23,6 +23,8 @@
 		0E41F7F7293A0567000B6630 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F6293A0567000B6630 /* TabBarView.swift */; };
 		0E41F7FA293A350A000B6630 /* RecipiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */; };
 		0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */; };
+		0EBE9F4D29402AC400843F55 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9F4C29402AC400843F55 /* Favorites.swift */; };
+		0EBE9FC02940BCD400843F55 /* FavoritesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		0E41F7F6293A0567000B6630 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesListViewController.swift; sourceTree = "<group>"; };
 		0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesTableViewCell.swift; sourceTree = "<group>"; };
+		0EBE9F4C29402AC400843F55 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				0E41F7DE2939C05E000B6630 /* Reciplease.xcdatamodeld */,
+				0EBE9F4C29402AC400843F55 /* Favorites.swift */,
+				0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -235,6 +241,8 @@
 				0E41F7E02939C05E000B6630 /* Reciplease.xcdatamodeld in Sources */,
 				0E1B6C51293DA5BB00A9CEBB /* Recipie.swift in Sources */,
 				0E41F7F3293A0439000B6630 /* ExtensionsView.swift in Sources */,
+				0EBE9F4D29402AC400843F55 /* Favorites.swift in Sources */,
+				0EBE9FC02940BCD400843F55 /* FavoritesRepository.swift in Sources */,
 				0E41F7DA2939C05E000B6630 /* ViewController.swift in Sources */,
 				0E41F7D62939C05E000B6630 /* AppDelegate.swift in Sources */,
 				0E41F7FA293A350A000B6630 /* RecipiesListViewController.swift in Sources */,
