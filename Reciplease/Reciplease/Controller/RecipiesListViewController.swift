@@ -41,7 +41,7 @@ final class RecipiesListViewController: UIViewController {
         }
     }
     
-    func getRecipies() {
+    private func getRecipies() {
         setIngredients(keywords: keyword)
         model.getRecipies { result in
             switch result {

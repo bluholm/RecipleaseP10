@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import CoreData
 
-class ResumeViewController: UIViewController {
+final class ResumeViewController: UIViewController {
 
     //MARK: - Properties
     
@@ -18,7 +17,7 @@ class ResumeViewController: UIViewController {
     @IBOutlet var yieldLabel: UILabel!
     @IBOutlet var ingredientTextView: UITextView!
     @IBOutlet var titleLabel: UILabel!
-    
+    var repository = FavoritesRepository()
     var recipe = Recipie(title: "",
                          ingredients: [""],
                          time: 0.0,
@@ -30,49 +29,28 @@ class ResumeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientView.applyGradient()
-        
-        
-        let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
-
-        do {
-            guard let result = try? AppDelegate.viewContext.fetch(request) else {
-                return
-            }
-            for data in result {
-                debugPrint(data.value(forKey: "name") as? String ?? "")
-            }
-        } catch let error as NSError {
-            debugPrint(error)
+        loadRecipie()
+    }
+    
+    //MARK: - privates
+    
+    private func loadRecipie() {
+        var ingredients: String {
+            recipe.ingredients.map { $0+"\n" }.joined()
         }
-        
         
         imageView.load(from: recipe.image)
         titleLabel.text = recipe.title
         timeLabel.text = String(Int(recipe.time))+"m"
         yieldLabel.text = recipe.yield
-        var ingredients: String {
-            recipe.ingredients.map { $0+"\n" }.joined()
-        }
         ingredientTextView.text = ingredients
-        
     }
     
     //MARK: - Actions
     
     @IBAction func favoriteButtonDidTapped(_ sender: Any) {
-        let favorites = Favorites(context: AppDelegate.viewContext)
-        favorites.title = "test"
-        do {
-            try AppDelegate.viewContext.save()
-            print("save")
-        } catch {
-            print("error while saving \(favorites)")
-        }
+        repository.saveData(favorite: recipe)
     }
     
-    @IBAction func directionButtonDidTapped(_ sender: Any) {
-       
-        
-    }
-    
+    @IBAction func directionButtonDidTapped(_ sender: Any) {}
 }

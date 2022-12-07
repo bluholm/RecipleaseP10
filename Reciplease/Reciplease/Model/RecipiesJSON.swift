@@ -8,16 +8,19 @@
 import Foundation
 
 // MARK: - Recipies
+
 struct Recipies: Codable {
     let hits: [Hit]
 }
 
 // MARK: - Hit
+
 struct Hit: Codable {
     let recipe: Recipe
 }
 
 // MARK: - Recipe
+
 struct Recipe: Codable {
     let label: String
     let image: String

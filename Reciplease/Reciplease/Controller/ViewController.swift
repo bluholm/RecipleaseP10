@@ -21,10 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Thread.sleep(forTimeInterval: 10.0)
-        
-            ingredientTextField.addBottomBorder()
-        
+        ingredientTextField.addBottomBorder()
     }
     
     //MARK: - Actions
@@ -33,9 +30,15 @@ class ViewController: UIViewController {
         guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else {
             return
         }
-        keywords.append(ingredient)
-        ingredientTextField.text = ""
-        tableView.reloadData()
+        
+        if let _ = keywords.firstIndex(of: ingredient) {
+            print("ERROR to push : ingredient already exist")
+        } else {
+            keywords.append(ingredient)
+            ingredientTextField.text?.removeAll()
+            tableView.reloadData()
+        }
+        
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
