@@ -35,10 +35,9 @@ class ViewController: UIViewController {
             print("ERROR to push : ingredient already exist")
         } else {
             keywords.append(ingredient)
-            ingredientTextField.text?.removeAll()
             tableView.reloadData()
         }
-        
+        ingredientTextField.text?.removeAll()
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {

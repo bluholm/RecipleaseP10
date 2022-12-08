@@ -11,6 +11,7 @@ final class ResumeViewController: UIViewController {
 
     //MARK: - Properties
     
+    @IBOutlet var favoriteNavigationBarIcon: UIBarButtonItem!
     @IBOutlet var gradientView: UIView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var timeLabel: UILabel!
@@ -20,9 +21,10 @@ final class ResumeViewController: UIViewController {
     var repository = FavoritesRepository()
     var recipe = Recipie(title: "",
                          ingredients: [""],
-                         time: 0.0,
+                         time: 0,
                          image: "",
-                         yield: "")
+                         yield: 0,
+                         url: URL(string: "http://google.com")!)
     
     //MARK: - Life Cycle Method
     
@@ -42,15 +44,18 @@ final class ResumeViewController: UIViewController {
         imageView.load(from: recipe.image)
         titleLabel.text = recipe.title
         timeLabel.text = String(Int(recipe.time))+"m"
-        yieldLabel.text = recipe.yield
+        yieldLabel.text = String(recipe.yield)
         ingredientTextView.text = ingredients
     }
     
     //MARK: - Actions
     
     @IBAction func favoriteButtonDidTapped(_ sender: Any) {
+        favoriteNavigationBarIcon.image = UIImage(systemName: "star.fill")
         repository.saveData(favorite: recipe)
     }
     
-    @IBAction func directionButtonDidTapped(_ sender: Any) {}
+    @IBAction func directionButtonDidTapped(_ sender: Any) {
+        UIApplication.shared.open(recipe.url)
+    }
 }

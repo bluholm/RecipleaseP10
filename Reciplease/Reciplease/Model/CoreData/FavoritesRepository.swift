@@ -19,10 +19,10 @@ final class FavoritesRepository {
         //convertir l'image d'abord ; car l'url est limité dans le temps ! 
         
         favorites.title = favorite.title
-        favorites.yield = favorite.yield
+        favorites.yield = Int16(favorite.yield)
         favorites.ingredients = favorite.ingredients.map { $0+"\n" }.joined()
         favorites.image = favorite.image
-        favorites.time = favorite.time
+        favorites.time = Int16(favorite.time)
         
         do {
             try AppDelegate.viewContext.save()
@@ -32,16 +32,13 @@ final class FavoritesRepository {
         }
     }
     
-    func getData() throws -> [Favorites] {
+    func getData(callback: @escaping([Favorites]) -> Void ) {
         let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
-
-        do {
-            guard let result = try? AppDelegate.viewContext.fetch(request) else {
-                return []
-            }
-        return result
-        } catch let error as NSError {
-            debugPrint(error)
+        guard let result = try? AppDelegate.viewContext.fetch(request) else {
+            callback([])
+            return
         }
+        callback(result)
+        
     }
 }

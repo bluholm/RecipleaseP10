@@ -46,12 +46,14 @@ final class RecipiesListViewController: UIViewController {
         model.getRecipies { result in
             switch result {
             case .success(let value):
+                print(value.hits[0])
                 value.hits.forEach { hit in
                     let recipie = Recipie(title: hit.recipe.label,
                                           ingredients: hit.recipe.ingredientLines,
-                                          time: Double(hit.recipe.totalTime),
+                                          time: Int(hit.recipe.totalTime),
                                           image: hit.recipe.image,
-                                          yield: String(hit.recipe.yield)
+                                          yield: Int(hit.recipe.yield),
+                                          url: hit.recipe.url
                     )
                     self.recipiesList.append(recipie)
                 }
@@ -82,7 +84,7 @@ extension RecipiesListViewController: UITableViewDataSource, UITableViewDelegate
            return UITableViewCell()
         }
         var time: String {
-            if recipiesList[indexPath.row].time == 0.0 {
+            if recipiesList[indexPath.row].time == 0 {
                 return "N/A"
             } else {
                 return String(Int(recipiesList[indexPath.row].time))+"m"
@@ -92,7 +94,7 @@ extension RecipiesListViewController: UITableViewDataSource, UITableViewDelegate
         cell.configure(image: recipiesList[indexPath.row].image,
                        title: recipiesList[indexPath.row].title,
                        subtitle: recipiesList[indexPath.row].ingredients[0],
-                       note: recipiesList[indexPath.row].yield,
+                       note: String(recipiesList[indexPath.row].yield),
                        time: time
         )
         return cell

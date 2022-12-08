@@ -25,6 +25,8 @@
 		0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */; };
 		0EBE9F4D29402AC400843F55 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9F4C29402AC400843F55 /* Favorites.swift */; };
 		0EBE9FC02940BCD400843F55 /* FavoritesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */; };
+		0EBE9FC229415EAA00843F55 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9FC129415EAA00843F55 /* FavoritesListViewController.swift */; };
+		0EBE9FC429416D4200843F55 /* note.md in Resources */ = {isa = PBXBuildFile; fileRef = 0EBE9FC329416D4200843F55 /* note.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesTableViewCell.swift; sourceTree = "<group>"; };
 		0EBE9F4C29402AC400843F55 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepository.swift; sourceTree = "<group>"; };
+		0EBE9FC129415EAA00843F55 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		0EBE9FC329416D4200843F55 /* note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = note.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.documentation.markup; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				0E41F7E12939C05F000B6630 /* Assets.xcassets */,
 				0E41F7E62939C05F000B6630 /* Info.plist */,
 				0E41F7EF2939C1AD000B6630 /* Supporting Files */,
+				0EBE9FC329416D4200843F55 /* note.md */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				0E41F7D92939C05E000B6630 /* ViewController.swift */,
 				0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */,
 				0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */,
+				0EBE9FC129415EAA00843F55 /* FavoritesListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EBE9FC429416D4200843F55 /* note.md in Resources */,
 				0E41F7E52939C05F000B6630 /* LaunchScreen.storyboard in Resources */,
 				0E41F7E22939C05F000B6630 /* Assets.xcassets in Resources */,
 				0E41F7DD2939C05E000B6630 /* Main.storyboard in Resources */,
@@ -252,6 +259,7 @@
 				0E1B6C58293F030800A9CEBB /* ResumeViewController.swift in Sources */,
 				0E1B6C55293E00AF00A9CEBB /* NetworkError.swift in Sources */,
 				0E1B6C4E293D9AD500A9CEBB /* RecipiesJSON.swift in Sources */,
+				0EBE9FC229415EAA00843F55 /* FavoritesListViewController.swift in Sources */,
 				0E41F7D82939C05E000B6630 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

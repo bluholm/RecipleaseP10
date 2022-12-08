@@ -25,9 +25,9 @@ final class RecipiesService {
             URLQueryItem(name: "app_key", value: "07a7d574b7926165e46876679070d5de"),
             URLQueryItem(name: "field", value: "label"),
             URLQueryItem(name: "field", value: "image"),
+            URLQueryItem(name: "field", value: "url"),
             URLQueryItem(name: "field", value: "yield"),
             URLQueryItem(name: "field", value: "ingredientLines"),
-            URLQueryItem(name: "field", value: "ingredients"),
             URLQueryItem(name: "field", value: "totalTime"),
             URLQueryItem(name: "q", value: ingredients)
             ]
