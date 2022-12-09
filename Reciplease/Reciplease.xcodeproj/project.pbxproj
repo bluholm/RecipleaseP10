@@ -11,7 +11,7 @@
 		0E1B6C51293DA5BB00A9CEBB /* Recipie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C50293DA5BB00A9CEBB /* Recipie.swift */; };
 		0E1B6C53293DEDC200A9CEBB /* RecipiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C52293DEDC200A9CEBB /* RecipiesService.swift */; };
 		0E1B6C55293E00AF00A9CEBB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C54293E00AF00A9CEBB /* NetworkError.swift */; };
-		0E1B6C58293F030800A9CEBB /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */; };
+		0E1B6C58293F030800A9CEBB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B6C57293F030800A9CEBB /* DetailViewController.swift */; };
 		0E41F7D62939C05E000B6630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7D52939C05E000B6630 /* AppDelegate.swift */; };
 		0E41F7D82939C05E000B6630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7D72939C05E000B6630 /* SceneDelegate.swift */; };
 		0E41F7DA2939C05E000B6630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7D92939C05E000B6630 /* ViewController.swift */; };
@@ -22,11 +22,12 @@
 		0E41F7F3293A0439000B6630 /* ExtensionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F2293A0439000B6630 /* ExtensionsView.swift */; };
 		0E41F7F7293A0567000B6630 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F6293A0567000B6630 /* TabBarView.swift */; };
 		0E41F7FA293A350A000B6630 /* RecipiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */; };
-		0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */; };
+		0E41F81F293CCB37000B6630 /* CustomRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41F81E293CCB37000B6630 /* CustomRecipeCell.swift */; };
 		0EBE9F4D29402AC400843F55 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9F4C29402AC400843F55 /* Favorites.swift */; };
 		0EBE9FC02940BCD400843F55 /* FavoritesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */; };
 		0EBE9FC229415EAA00843F55 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE9FC129415EAA00843F55 /* FavoritesListViewController.swift */; };
 		0EBE9FC429416D4200843F55 /* note.md in Resources */ = {isa = PBXBuildFile; fileRef = 0EBE9FC329416D4200843F55 /* note.md */; };
+		0EBEA00C2942B05600843F55 /* RepositoryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEA00B2942B05600843F55 /* RepositoryKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,7 @@
 		0E1B6C50293DA5BB00A9CEBB /* Recipie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipie.swift; sourceTree = "<group>"; };
 		0E1B6C52293DEDC200A9CEBB /* RecipiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesService.swift; sourceTree = "<group>"; };
 		0E1B6C54293E00AF00A9CEBB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
+		0E1B6C57293F030800A9CEBB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0E41F7D22939C05E000B6630 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E41F7D52939C05E000B6630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E41F7D72939C05E000B6630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,11 +48,12 @@
 		0E41F7F2293A0439000B6630 /* ExtensionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsView.swift; sourceTree = "<group>"; };
 		0E41F7F6293A0567000B6630 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesListViewController.swift; sourceTree = "<group>"; };
-		0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesTableViewCell.swift; sourceTree = "<group>"; };
+		0E41F81E293CCB37000B6630 /* CustomRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRecipeCell.swift; sourceTree = "<group>"; };
 		0EBE9F4C29402AC400843F55 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepository.swift; sourceTree = "<group>"; };
 		0EBE9FC129415EAA00843F55 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
 		0EBE9FC329416D4200843F55 /* note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = note.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.documentation.markup; };
+		0EBEA00B2942B05600843F55 /* RepositoryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +125,7 @@
 				0E41F7E32939C05F000B6630 /* LaunchScreen.storyboard */,
 				0E41F7DB2939C05E000B6630 /* Main.storyboard */,
 				0E41F7F6293A0567000B6630 /* TabBarView.swift */,
-				0E41F81E293CCB37000B6630 /* RecipiesTableViewCell.swift */,
+				0E41F81E293CCB37000B6630 /* CustomRecipeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,7 +135,7 @@
 			children = (
 				0E41F7D92939C05E000B6630 /* ViewController.swift */,
 				0E41F7F9293A350A000B6630 /* RecipiesListViewController.swift */,
-				0E1B6C57293F030800A9CEBB /* ResumeViewController.swift */,
+				0E1B6C57293F030800A9CEBB /* DetailViewController.swift */,
 				0EBE9FC129415EAA00843F55 /* FavoritesListViewController.swift */,
 			);
 			path = Controller;
@@ -154,6 +156,7 @@
 				0E41F7DE2939C05E000B6630 /* Reciplease.xcdatamodeld */,
 				0EBE9F4C29402AC400843F55 /* Favorites.swift */,
 				0EBE9FBF2940BCD400843F55 /* FavoritesRepository.swift */,
+				0EBEA00B2942B05600843F55 /* RepositoryKey.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -252,11 +255,12 @@
 				0EBE9FC02940BCD400843F55 /* FavoritesRepository.swift in Sources */,
 				0E41F7DA2939C05E000B6630 /* ViewController.swift in Sources */,
 				0E41F7D62939C05E000B6630 /* AppDelegate.swift in Sources */,
+				0EBEA00C2942B05600843F55 /* RepositoryKey.swift in Sources */,
 				0E41F7FA293A350A000B6630 /* RecipiesListViewController.swift in Sources */,
 				0E1B6C53293DEDC200A9CEBB /* RecipiesService.swift in Sources */,
-				0E41F81F293CCB37000B6630 /* RecipiesTableViewCell.swift in Sources */,
+				0E41F81F293CCB37000B6630 /* CustomRecipeCell.swift in Sources */,
 				0E41F7F7293A0567000B6630 /* TabBarView.swift in Sources */,
-				0E1B6C58293F030800A9CEBB /* ResumeViewController.swift in Sources */,
+				0E1B6C58293F030800A9CEBB /* DetailViewController.swift in Sources */,
 				0E1B6C55293E00AF00A9CEBB /* NetworkError.swift in Sources */,
 				0E1B6C4E293D9AD500A9CEBB /* RecipiesJSON.swift in Sources */,
 				0EBE9FC229415EAA00843F55 /* FavoritesListViewController.swift in Sources */,

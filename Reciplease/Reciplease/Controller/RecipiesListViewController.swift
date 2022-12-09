@@ -46,7 +46,6 @@ final class RecipiesListViewController: UIViewController {
         model.getRecipies { result in
             switch result {
             case .success(let value):
-                print(value.hits[0])
                 value.hits.forEach { hit in
                     let recipie = Recipie(title: hit.recipe.label,
                                           ingredients: hit.recipe.ingredientLines,
@@ -80,7 +79,7 @@ extension RecipiesListViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecipiesTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomRecipeCell else {
            return UITableViewCell()
         }
         var time: String {
@@ -94,14 +93,14 @@ extension RecipiesListViewController: UITableViewDataSource, UITableViewDelegate
         cell.configure(image: recipiesList[indexPath.row].image,
                        title: recipiesList[indexPath.row].title,
                        subtitle: recipiesList[indexPath.row].ingredients[0],
-                       note: String(recipiesList[indexPath.row].yield),
+                       yield: String(recipiesList[indexPath.row].yield),
                        time: time
         )
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "resume") as? ResumeViewController {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "resume") as? DetailViewController {
             vc.recipe = recipiesList[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }

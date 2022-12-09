@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipiesTableViewCell: UITableViewCell {
+class CustomRecipeCell: UITableViewCell {
 
     //MARK: - Properties
     
@@ -26,11 +26,11 @@ class RecipiesTableViewCell: UITableViewCell {
     }
     
     //MARK: - Pubic
-    func configure(image: String, title: String, subtitle: String, note: String, time: String) {
+    func configure(image: String, title: String, subtitle: String, yield: String, time: String) {
         imageBackground.load(from: image)
         titleLabel.text = title
         subtitleLabel.text = subtitle
-        noteLabel.text = note
+        noteLabel.text = yield
         timeLabel.text = time
     }
 }

@@ -12,7 +12,7 @@
         <!--Favorites List View Controller-->
         <scene sceneID="WWF-Tu-EtV">
             <objects>
-                <viewController id="FZr-fA-rnY" customClass="FavoritesListViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favorite" id="FZr-fA-rnY" customClass="FavoritesListViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sjV-G8-hlc">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFavoritesIdentification" rowHeight="150" id="lYz-tT-wHG" customClass="RecipiesTableViewCell" customModule="Reciplease" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFavoritesIdentification" rowHeight="150" id="lYz-tT-wHG" customClass="CustomRecipeCell" customModule="Reciplease" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="430" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lYz-tT-wHG" id="SQ1-ze-mui">
@@ -340,7 +340,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="430" height="849"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRecipiesIdentification" rowHeight="150" id="8rR-4b-sOD" customClass="RecipiesTableViewCell" customModule="Reciplease" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRecipiesIdentification" rowHeight="150" id="8rR-4b-sOD" customClass="CustomRecipeCell" customModule="Reciplease" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="430" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8rR-4b-sOD" id="hse-XN-PPt">
@@ -527,10 +527,10 @@
             </objects>
             <point key="canvasLocation" x="794.6564885496183" y="-45.070422535211272"/>
         </scene>
-        <!--Resume View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="pl6-O5-XPJ">
             <objects>
-                <viewController storyboardIdentifier="resume" id="2oc-Ws-gaU" customClass="ResumeViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resume" id="2oc-Ws-gaU" customClass="DetailViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RiV-Ze-DEJ">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

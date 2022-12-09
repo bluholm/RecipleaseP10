@@ -10,11 +10,11 @@ import Foundation
 
 struct Recipie {
 
-    let title: String
-    let ingredients: [String]
-    let time: Int
-    let image: String
-    let yield: Int
-    let url: URL
+    var title: String
+    var ingredients: [String]
+    var time: Int
+    var image: String
+    var yield: Int
+    var url: URL
 
 }
