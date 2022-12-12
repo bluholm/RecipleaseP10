@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     //MARK: - Properties
     
@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var ingredientTextField: UITextField!
     private let cellIdentifier = "ingredientList"
     //private var keywords = [String]()
-    private var keywords = ["lamb","mint"]
+    private var keywords = ["ham","cheese"]
     
     //MARK: - Life Cycle Method
     
@@ -52,14 +52,14 @@ class ViewController: UIViewController {
     //MARK: - Prepare Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as! RecipiesListViewController
+        let destinationViewController = segue.destination as! RecipesViewController
         destinationViewController.keyword = keywords
     }
 }
 
     //MARK: -  UITableViewDataSource
 
-extension ViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return keywords.count
     }
@@ -79,7 +79,7 @@ extension ViewController: UITableViewDataSource {
 
 //MARK: - Extension KeyBoard Should Return
 
-extension ViewController: UITextFieldDelegate {
+extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         ingredientTextField.resignFirstResponder()
         return true

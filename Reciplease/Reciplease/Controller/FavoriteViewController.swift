@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-final class FavoritesListViewController: UIViewController {
+final class FavoriteViewController: UIViewController {
 
     //MARK: - Properties
     
@@ -36,7 +36,7 @@ final class FavoritesListViewController: UIViewController {
 
 //MARK: - Extensions UITableViewDelegate UITableViewController
 
-extension FavoritesListViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
@@ -48,11 +48,12 @@ extension FavoritesListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         let favori = favorites[indexPath.row]
         let title = favori.value(forKey: ConstantKey.title) as? String ?? ""
-        let image = favori.value(forKey: ConstantKey.image) as? String ?? ""
+        let fileName = favori.value(forKey: ConstantKey.fileName) as? String ?? ""
         let ingredients = favori.value(forKey: ConstantKey.ingredients) as? String ?? ""
         let time = favori.value(forKey: ConstantKey.time) as? Int ?? 0
         let yield = favori.value(forKey: ConstantKey.yield) as? Int ?? 0
-        cell.configure(image: image, title: title, subtitle: ingredients, yield: String(yield), time: String(time))
+        let imageURL = ""
+        cell.configure(fileName: fileName, imageURL: imageURL, title: title, subtitle: ingredients, yield: String(yield), time: String(time))
         return cell
     }
     

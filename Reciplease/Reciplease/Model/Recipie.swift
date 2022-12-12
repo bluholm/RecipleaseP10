@@ -13,8 +13,9 @@ struct Recipie {
     var title: String
     var ingredients: [String]
     var time: Int
-    var image: String
+    var fileName: String
+    var imageurl: String
     var yield: Int
-    var url: URL
+    var url: String 
 
 }

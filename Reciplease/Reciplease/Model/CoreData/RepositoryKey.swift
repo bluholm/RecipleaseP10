@@ -9,11 +9,11 @@ import Foundation
 
 enum ConstantKey {
 
-    static let title = "title"
-    static let yield = "yield"
-    static let image = "image"
-    static let time = "time"
-    static let url = "url"
+    static let fileName = "fileName"
     static let ingredients = "ingredients"
-    
+    static let time = "time"
+    static let title = "title"
+    static let url = "url"
+    static let yield = "yield"
+
 }

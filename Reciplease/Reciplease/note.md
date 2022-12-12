@@ -1,10 +1,7 @@
 #ToDo 
 
 > les tests unitaires 
-> la sauvegarde de l'image et donc le chargement de l'image . 
-> le fait que l'étoile favorie s'active si 
-> supprimer le favoris lorsque l'on clique sur l'etoile 
-> Load plus que 20 image ( to : From )
+> la sauvegarde de l'image et donc le chargement de l'image .   
 
 #Refactoring 
 > url + **getDirections** files 

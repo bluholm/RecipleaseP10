@@ -26,15 +26,21 @@ class CustomRecipeCell: UITableViewCell {
     }
     
     //MARK: - Pubic
-    func configure(image: String, title: String, subtitle: String, yield: String, time: String) {
-        imageBackground.load(from: image)
+    func configure(fileName: String, imageURL: String, title: String, subtitle: String, yield: String, time: String) {
+        if imageURL.isEmpty {
+            imageBackground.loadFiles(from: fileName)
+            
+        } else {
+            imageBackground.load(from: imageURL)
+        }
+        
         titleLabel.text = title
         subtitleLabel.text = subtitle
         noteLabel.text = yield
         timeLabel.text = time
     }
-}
 
+}
 
 //MARK: - UIView Extension
 
@@ -51,6 +57,7 @@ extension UIView {
     }
 }
 
+//MARK: - UIImage Extension
 
 extension UIImageView {
     /// Load an image from his URL

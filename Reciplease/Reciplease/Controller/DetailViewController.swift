@@ -21,12 +21,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     var repository = FavoritesRepository()
     var recipeNS = NSManagedObject()
-    var recipe = Recipie(title: "",
-                         ingredients: [""],
-                         time: 0,
-                         image: "",
-                         yield: 0,
-                         url: URL(string: "http://google.com")!)
+    var recipe = Recipie(title: "", ingredients: [""], time: 0, fileName: "", imageurl: "", yield: 0, url: "")
     
     //MARK: - Life Cycle Method
     
@@ -47,20 +42,19 @@ final class DetailViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func favoriteButtonDidTapped(_ sender: Any) {
-
         if repository.isDataExist(title: recipe.title) {
-            repository.deleteData(data: recipeNS)
+           repository.deleteData(data: recipeNS)
             navigationController?.popViewController(animated: true)
         } else {
             repository.createData(data: recipe)
             self.loadRecipe()
             self.updateFavoriteIcon()
         }
-        
     }
     
     @IBAction func directionButtonDidTapped(_ sender: Any) {
-        UIApplication.shared.open(recipe.url)
+        guard let url = URL(string: recipe.url) else { return }
+        UIApplication.shared.open(url)
     }
     
     //MARK: - privates
@@ -76,7 +70,14 @@ final class DetailViewController: UIViewController {
     private func loadRecipe() {
         titleLabel.text = recipe.title
         ingredientTextView.text = recipe.ingredients.map { $0+"\n" }.joined()
-        imageView.load(from: recipe.image)
+        
+        if(recipe.imageurl.isEmpty){
+            imageView.loadFiles(from: recipe.fileName)
+        } else {
+            imageView.load(from: recipe.imageurl)
+        }
+        
+        
         timeLabel.text = String(recipe.time)
         yieldLabel.text = String(recipe.yield)
     }
@@ -87,6 +88,7 @@ final class DetailViewController: UIViewController {
         recipe.ingredients  = ingredient.components(separatedBy: "\n")
         recipe.time = recipeNS.value(forKey: ConstantKey.time) as? Int ?? 0
         recipe.yield = recipeNS.value(forKey: ConstantKey.yield) as? Int ?? 0
+        recipe.fileName = recipeNS.value(forKey: ConstantKey.fileName) as? String ?? ""
     }
     
 }
