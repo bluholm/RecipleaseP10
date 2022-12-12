@@ -89,44 +89,32 @@ final class FavoritesRepository {
     //MARK:  - Public Methods  Document Directory
     
     func saveFiles(url: String, fileName: String) {
-                guard let url = URL(string: url) else { return }
-                getData(from: url) { data, response, error in
-                    guard let imageData = data else { return }
-                    if let image = UIImage(data: imageData) {
-                        if let data = image.jpegData(compressionQuality: 0.8) {
-                            let filename = self.getDocumentsDirectory().appendingPathComponent(fileName)
-                            try? data.write(to: filename)
-                        }
-                    }
+        guard let url = URL(string: url) else { return }
+        getData(from: url) { data, response, error in
+            guard let imageData = data else { return }
+            if let image = UIImage(data: imageData) {
+                if let data = image.jpegData(compressionQuality: 0.8) {
+                    let filename = self.getDocumentsDirectory().appendingPathComponent(fileName)
+                    try? data.write(to: filename)
                 }
             }
+        }
+    }
     
     func deleteFiles(_ fileToDelete: String) {
-            let fileManager = FileManager.default
-            let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileToDelete)
-            if fileManager.fileExists(atPath: yourProjectImagesPath) {
-                try! fileManager.removeItem(atPath: yourProjectImagesPath)
-            }
+        let fileManager = FileManager.default
+        let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileToDelete)
+        if fileManager.fileExists(atPath: yourProjectImagesPath) {
+            try! fileManager.removeItem(atPath: yourProjectImagesPath)
         }
+    }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-                URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
     func getDocumentsDirectory() -> URL {
-                let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-                return paths[0]
-    }
-    
-    
-}
-
-//MARK: - Extension UIImage loadFiles
-
-extension UIImageView {
-    func loadFiles(from nameFile: String) {
-        let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(nameFile)
-        self.image = UIImage(contentsOfFile: yourProjectImagesPath)
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
-

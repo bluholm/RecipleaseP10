@@ -7,15 +7,14 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
 
     //MARK: - Properties
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var ingredientTextField: UITextField!
     private let cellIdentifier = "ingredientList"
-    //private var keywords = [String]()
-    private var keywords = ["ham","cheese"]
+    private var keywords = [String]()
     
     //MARK: - Life Cycle Method
     
@@ -27,10 +26,7 @@ class SearchViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else {
-            return
-        }
-        
+        guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
         if let _ = keywords.firstIndex(of: ingredient) {
             print("ERROR to push : ingredient already exist")
         } else {

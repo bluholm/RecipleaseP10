@@ -32,12 +32,12 @@ final class RecipesViewController: UIViewController {
         super.viewDidLoad()
         tableView.prefetchDataSource = self
         self.showActivityIndicator(true)
-        fetchRecipes()
+        self.fetchRecipes()
     }
     
     //MARK: - Privates
     
-    func showActivityIndicator(_ isHidden: Bool) {
+    private func showActivityIndicator(_ isHidden: Bool) {
         tableView.isHidden = isHidden
         toggleActivityIndicator.isHidden = !isHidden
         loadingLabel.isHidden = !isHidden
@@ -126,6 +126,8 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+//MARK: - Extensions UITableViewDataSourcePrefetching
+
 extension RecipesViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         let filter = indexPaths.filter({ $0.row >= recipiesList.count-1 })
@@ -133,17 +135,4 @@ extension RecipesViewController: UITableViewDataSourcePrefetching {
             self.fetchRecipes()
         }
     }
-}
-
-extension String {
-    static func uniqueFilename(withPrefix prefix: String? = nil) -> String {
-        let uniqueString = ProcessInfo.processInfo.globallyUniqueString
-        
-        if prefix != nil {
-            return "\(prefix!)-\(uniqueString)"
-        }
-        
-        return uniqueString
-    }
-    
 }
