@@ -7,9 +7,10 @@
 
 import UIKit
 
-//MARK: - UIImage Extension
+// MARK: - UIImage Extension
 
 extension UIImageView {
+    
     func load(from urlImageString: String?) {
         guard let urlImageString = urlImageString else { return }
         guard let urlImage = URL(string: urlImageString) else { return }
@@ -28,6 +29,7 @@ extension UIImageView {
 }
 
 extension UIImageView {
+    
     func loadFiles(from nameFile: String) {
         let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(nameFile)
         self.image = UIImage(contentsOfFile: yourProjectImagesPath)

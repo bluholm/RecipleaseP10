@@ -10,21 +10,21 @@ import CoreData
 
 final class FavoriteViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet var tableView: UITableView!
     private let cellIdentifier = "cellFavoritesIdentification"
     private let repository = FavoritesRepository()
     private var favorites: [NSManagedObject] = []
     
-    //MARK: - Life Cycle Method
+    // MARK: - Life Cycle Method
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getData()
     }
     
-    //MARK: - Privates Methods
+    // MARK: - Privates Methods
     
     func getData() {
         repository.getData { data in
@@ -34,7 +34,7 @@ final class FavoriteViewController: UIViewController {
     }
 }
 
-//MARK: - Extensions UITableViewDelegate UITableViewController
+// MARK: - Extensions UITableViewDelegate UITableViewController
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     

@@ -9,14 +9,13 @@ import Foundation
 import CoreData
 import UIKit
 
-
 final class FavoritesRepository {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     private let entitie = "Favorites"
-    
-    //MARK: - Public Methods CoreData
+     
+    // MARK: - Public Methods CoreData
     
     func createData(data: Recipie) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -36,7 +35,7 @@ final class FavoritesRepository {
             try managedContext.save()
             
         } catch let error as NSError {
-            print("error when in CoreData \(error)")
+             print("error when in CoreData \(error)")
         }
     }
     
@@ -86,11 +85,11 @@ final class FavoritesRepository {
         }
     }
     
-    //MARK:  - Public Methods  Document Directory
+    // MARK: - Public Methods  Document Directory
     
     func saveFiles(url: String, fileName: String) {
         guard let url = URL(string: url) else { return }
-        getData(from: url) { data, response, error in
+        getData(from: url) { data, _, _ in
             guard let imageData = data else { return }
             if let image = UIImage(data: imageData) {
                 if let data = image.jpegData(compressionQuality: 0.8) {
@@ -105,11 +104,16 @@ final class FavoritesRepository {
         let fileManager = FileManager.default
         let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileToDelete)
         if fileManager.fileExists(atPath: yourProjectImagesPath) {
-            try! fileManager.removeItem(atPath: yourProjectImagesPath)
+            do {
+                try fileManager.removeItem(atPath: yourProjectImagesPath)
+            } catch {
+                print("error when deleting file")
+            }
+            
         }
     }
     
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     

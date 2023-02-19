@@ -9,7 +9,7 @@ import UIKit
 
 class CustomRecipeCell: UITableViewCell {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
@@ -18,14 +18,15 @@ class CustomRecipeCell: UITableViewCell {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var gradient: UIView!
     
-    //MARK: - Override
+    // MARK: - Override
     
     override func awakeFromNib() {
         super.awakeFromNib()
         gradient.applyGradient()
     }
     
-    //MARK: - Pubic
+    // MARK: - Pubic
+    // swiftlint: disable function_parameter_count
     func configure(fileName: String, imageURL: String, title: String, subtitle: String, yield: String, time: String) {
         if imageURL.isEmpty {
             imageBackground.loadFiles(from: fileName)

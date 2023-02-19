@@ -10,7 +10,7 @@ import CoreData
 
 final class DetailViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet var favoriteNavigationBarIcon: UIBarButtonItem!
     @IBOutlet var gradientView: UIView!
@@ -23,7 +23,7 @@ final class DetailViewController: UIViewController {
     var recipeNS = NSManagedObject()
     var recipe = Recipie(title: "", ingredients: [""], time: 0, fileName: "", imageurl: "", yield: 0, url: "")
     
-    //MARK: - Life Cycle Method
+    // MARK: - Life Cycle Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ final class DetailViewController: UIViewController {
         self.updateFavoriteIcon()
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func favoriteButtonDidTapped(_ sender: Any) {
         if repository.isDataExist(title: recipe.title) {
@@ -57,7 +57,7 @@ final class DetailViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
-    //MARK: - privates
+    // MARK: - privates
     
     private func updateFavoriteIcon() {
         if repository.isDataExist(title: recipe.title) {
@@ -71,13 +71,12 @@ final class DetailViewController: UIViewController {
         titleLabel.text = recipe.title
         ingredientTextView.text = recipe.ingredients.map { $0+"\n" }.joined()
         
-        if(recipe.imageurl.isEmpty){
+        if recipe.imageurl.isEmpty {
             imageView.loadFiles(from: recipe.fileName)
         } else {
             imageView.load(from: recipe.imageurl)
         }
-        
-        
+         
         timeLabel.text = String(recipe.time)
         yieldLabel.text = String(recipe.yield)
     }

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Recipie {
 
     var title: String

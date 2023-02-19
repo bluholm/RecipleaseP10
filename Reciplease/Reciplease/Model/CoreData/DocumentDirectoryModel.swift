@@ -7,8 +7,4 @@
 
 import Foundation
 
-
-class DocumentDirectoryModel {
-    
-
-}
+class DocumentDirectoryModel { }

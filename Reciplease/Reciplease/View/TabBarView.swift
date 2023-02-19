@@ -9,18 +9,19 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    //MARK: - Life Cycle Method
+    // MARK: - Life Cycle Method
     
     override func viewDidLoad() {
         customizeTabBarView()
     }
     
-    //MARK: - Private
+    // MARK: - Private
     
     private func customizeTabBarView() {
         let appearance = UITabBarItem.appearance()
-        let attributes = [NSAttributedString.Key.font:UIFont(name: "American Typewriter", size: 20)]
-        appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "American Typewriter", size: 20)]
+        
+        appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key: Any], for: .normal)
 
         tabBarController?.tabBar.barTintColor = UIColor.brown
         self.tabBar.tintColor = .black

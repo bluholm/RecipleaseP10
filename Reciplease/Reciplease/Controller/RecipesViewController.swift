@@ -8,17 +8,17 @@
 import UIKit
 
 final class RecipesViewController: UIViewController {
-
-    //MARK: - Properties    
+    
+    // MARK: - Properties
     @IBOutlet var toggleActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var loadingLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     private var recipiesList = [Recipie]() {
         didSet {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.tableView.reloadData()
-                    }
-                }
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+        }
     }
     var keyword = [String]()
     private let defaultIngredient = "tomato,basil"
@@ -26,7 +26,7 @@ final class RecipesViewController: UIViewController {
     private let model = RecipiesService()
     var nextUrlCode = ""
     
-    //MARK: - Life Cycle Methods
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,32 +35,34 @@ final class RecipesViewController: UIViewController {
         self.fetchRecipes()
     }
     
-    //MARK: - Privates
+    // MARK: - Privates
     
     private func showActivityIndicator(_ isHidden: Bool) {
+        toggleActivityIndicator.startAnimating()
         tableView.isHidden = isHidden
         toggleActivityIndicator.isHidden = !isHidden
         loadingLabel.isHidden = !isHidden
     }
     
-    private func setIngredients(keywords: [String]) {
+    private func loadIngredients(keywords: [String]) -> String {
         if !keywords.isEmpty {
             var ingredients = keywords.map { $0+"," }.joined()
             ingredients.removeLast()
-            model.ingredients = ingredients
+            return ingredients
         } else {
-            model.ingredients = defaultIngredient
+            return defaultIngredient
         }
     }
     
     private func getQueryStringParameter(url: String, param: String) -> String? {
-      guard let url = URLComponents(string: url) else { return nil }
-      return url.queryItems?.first(where: { $0.name == param })?.value
+        guard let url = URLComponents(string: url) else { return nil }
+        return url.queryItems?.first(where: { $0.name == param })?.value
     }
     
     private func fetchRecipes() {
-        setIngredients(keywords: keyword)
-        model.getRecipies{ [weak self] result in
+        let ingredients = loadIngredients(keywords: keyword)
+        guard let url = model.prepareURL(with: ingredients, from: nextUrlCode) else { return }
+        model.getRecipes(url: url) { [weak self] result in
             switch result {
             case .success(let value):
                 DispatchQueue.main.async {
@@ -79,27 +81,24 @@ final class RecipesViewController: UIViewController {
                     let nextUrl = value.links.next.href
                     self?.nextUrlCode = (self?.getQueryStringParameter(url: nextUrl, param: "_cont")!)!
                 }
-            case .failure(.errorNil):
-                print("errorNIl")
-            case .failure(.decoderJSON):
-                print("decoderJSON")
-            case .failure(.statusCode):
-                print("StutsCodeError")
+            case .failure(let error):
+                print(error)
             }
         }
     }
 }
 
-//MARK: - Extension UITableViewDataSource
+// MARK: - Extension UITableViewDataSource
 
 extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipiesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomRecipeCell else {
-           return UITableViewCell()
+            return UITableViewCell()
         }
         var time: String {
             if recipiesList[indexPath.row].time == 0 {
@@ -109,7 +108,7 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         cell.configure(fileName: "",
-                        imageURL: recipiesList[indexPath.row].imageurl,
+                       imageURL: recipiesList[indexPath.row].imageurl,
                        title: recipiesList[indexPath.row].title,
                        subtitle: recipiesList[indexPath.row].ingredients[0],
                        yield: String(recipiesList[indexPath.row].yield),
@@ -126,9 +125,10 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//MARK: - Extensions UITableViewDataSourcePrefetching
+// MARK: - Extensions UITableViewDataSourcePrefetching
 
 extension RecipesViewController: UITableViewDataSourcePrefetching {
+    
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         let filter = indexPaths.filter({ $0.row >= recipiesList.count-1 })
         filter.forEach {_ in

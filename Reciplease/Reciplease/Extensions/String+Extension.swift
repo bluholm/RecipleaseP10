@@ -7,8 +7,8 @@
 
 import Foundation
 
-
 extension String {
+    
     static func uniqueFilename(withPrefix prefix: String? = nil) -> String {
         let uniqueString = ProcessInfo.processInfo.globallyUniqueString
         if prefix != nil {

@@ -9,24 +9,25 @@ import UIKit
 
 final class SearchViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var ingredientTextField: UITextField!
     private let cellIdentifier = "ingredientList"
     private var keywords = [String]()
     
-    //MARK: - Life Cycle Method
+    // MARK: - Life Cycle Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ingredientTextField.addBottomBorder()
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: Any) {
         guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
+        // swiftlint: disable unused_optional_binding
         if let _ = keywords.firstIndex(of: ingredient) {
             print("ERROR to push : ingredient already exist")
         } else {
@@ -45,17 +46,18 @@ final class SearchViewController: UIViewController {
         ingredientTextField.resignFirstResponder()
     }
     
-    //MARK: - Prepare Segue
+    // MARK: - Prepare Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination as! RecipesViewController
+        guard let destinationViewController = segue.destination as? RecipesViewController else { return }
         destinationViewController.keyword = keywords
     }
 }
 
-    //MARK: -  UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
 extension SearchViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return keywords.count
     }
@@ -73,9 +75,10 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
-//MARK: - Extension KeyBoard Should Return
+// MARK: - Extension KeyBoard Should Return
 
 extension SearchViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         ingredientTextField.resignFirstResponder()
         return true
