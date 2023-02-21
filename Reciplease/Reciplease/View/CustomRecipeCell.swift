@@ -34,10 +34,10 @@ class CustomRecipeCell: UITableViewCell {
         timeLabel.text = time
         if imageURL.isEmpty {
             
-            imageBackground.loadFiles(from: fileName)
+            imageBackground.loadFiles(from: fileName, description: title)
             
         } else {
-            imageBackground.load(from: imageURL)
+            imageBackground.load(from: imageURL, description: title)
         }
     }
 }

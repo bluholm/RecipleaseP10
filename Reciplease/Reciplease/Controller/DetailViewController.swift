@@ -72,9 +72,9 @@ final class DetailViewController: UIViewController {
         timeLabel.text = String(recipe.time)+"m"
         yieldLabel.text = String(recipe.yield)
         if recipe.imageurl.isEmpty {
-            imageView.loadFiles(from: recipe.fileName)
+            imageView.loadFiles(from: recipe.fileName, description: recipe.title)
         } else {
-            imageView.load(from: recipe.imageurl)
+            imageView.load(from: recipe.imageurl, description: recipe.title)
         }
     }
     
