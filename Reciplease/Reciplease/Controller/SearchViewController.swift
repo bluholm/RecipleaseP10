@@ -27,8 +27,8 @@ final class SearchViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: Any) {
         guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
-        // swiftlint: disable unused_optional_binding
-        if let _ = keywords.firstIndex(of: ingredient) {
+        
+        if keywords.firstIndex(of: ingredient) != nil {
             print("ERROR to push : ingredient already exist")
         } else {
             keywords.append(ingredient)

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//FIXME: - si pas de repone avec un mot bidon : alros ?88 
+
 final class RecipesViewController: UIViewController {
     
     // MARK: - Properties

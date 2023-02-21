@@ -1,5 +1,5 @@
 //
-//  FavoritesRepository.swift
+//  FilesRepository.swift
 //  Reciplease
 //
 //  Created by Marc-Antoine BAR on 2022-12-07.
@@ -8,9 +8,8 @@
 import Foundation
 import CoreData
 import UIKit
-
-//FIXME: - to be rename + virer tout les fonctions inutles . 
-final class FavoritesRepository {
+ 
+final class DocumentsDirectoryRepository {
     
     // MARK: - Properties
     

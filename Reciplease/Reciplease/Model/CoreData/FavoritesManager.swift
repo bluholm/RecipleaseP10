@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-@objc(Person)
+@objc(Favorites)
 class Favorites: NSManagedObject {
     
     static func createFavorites(with data: Recipie, context: NSManagedObjectContext) {
@@ -22,7 +22,7 @@ class Favorites: NSManagedObject {
         favori.url = data.url
         favori.fileName = data.fileName
         
-         FavoritesRepository().saveFiles(url: data.imageurl, fileName: data.fileName)
+         DocumentsDirectoryRepository().saveFiles(url: data.imageurl, fileName: data.fileName)
         
         do {
             try context.save()

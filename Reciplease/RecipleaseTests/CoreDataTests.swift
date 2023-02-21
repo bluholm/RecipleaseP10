@@ -14,11 +14,12 @@ class MyEntityTests: XCTestCase {
     // MARK: - Properties
     var persistentContainer: NSPersistentContainer!
     var context: NSManagedObjectContext!
-    let model = FavoritesRepository()
+
     // MARK: - Overrides
     override func setUp() {
         super.setUp()
         persistentContainer = NSPersistentContainer(name: "Reciplease")
+        // swiftlint:disable line_length
         persistentContainer.persistentStoreDescriptions = [NSPersistentStoreDescription(url: URL(fileURLWithPath: "/dev/null"))]
         let description = NSPersistentStoreDescription()
         description.type = NSInMemoryStoreType
@@ -31,97 +32,69 @@ class MyEntityTests: XCTestCase {
         context = persistentContainer.viewContext
     }
     override func tearDown() {
-        flushData()
-        super.tearDown()
-        // persistentContainer.viewContext.rollback()
-        // persistentContainer = nil
-    }
-    func flushData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
-        // swiftlint: disable force_try
-        let objs = try! persistentContainer.viewContext.fetch(fetchRequest)
-        for case let obj as NSManagedObject in objs {
-            persistentContainer.viewContext.delete(obj)
+            persistentContainer = nil
+            context = nil
+            super.tearDown()
         }
-        // swiftlint: disable force_try
-        try! persistentContainer.viewContext.save()
-
-    }
 
     // MARK: - Tests CoreData
-    func testMyEntityFunctionality() {
-        let context = persistentContainer.viewContext
-        let myEntity = Favorites(context: context)
-        myEntity.title = "Test object"
-        do {
-            try context.save()
-        } catch {
-            print("error")
-        }
+    func testGivenNewFavorite_WhenCreateFavorite_ThenOneMoreDataInCoreData() {
+        Favorites.createFavorites(with: FakeDataCoreData.recipie, context: context)
         let fetchRequest: NSFetchRequest<Favorites> = Favorites.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "title == %@", "Test object")
+        fetchRequest.predicate = NSPredicate(format: "title == %@", FakeDataCoreData.recipie.title)
         do {
-            let results = try context.fetch(fetchRequest)
-            XCTAssertEqual(results.count, 1)
-            XCTAssertEqual(results.first?.title, "Test object")
+            let persons = try context.fetch(fetchRequest)
+            XCTAssertEqual(persons.count, 1, "Unexpected number of persons")
+            XCTAssertEqual(persons.first?.title, FakeDataCoreData.recipie.title, "Unexpected person name")
+            XCTAssertEqual(persons.first?.time, Int16(FakeDataCoreData.recipie.time), "Unexpected person age")
         } catch {
-            XCTFail("expected a result")
+            XCTFail("Failed to fetch person: \(error)")
         }
-    }
-    func testWhenCreateDataThenExpectDataInCoreData() {
-        let managedContext = persistentContainer.newBackgroundContext()
-        managedContext.performAndWait {
-            model.createData(data: FakeDataCoreData.recipie)
-        }
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
-        do {
-            let results = try managedContext.fetch(fetchRequest)
-            guard let result = results.first as? NSManagedObject else { return }
-            XCTAssertEqual(result.value(forKey: ConstantKey.title) as? String, "Test")
-            XCTAssertEqual(result.value(forKey: ConstantKey.yield) as? Int16, 2)
-            XCTAssertEqual(result.value(forKey: ConstantKey.ingredients) as? String, "salade\ntomate\n")
-            XCTAssertEqual(result.value(forKey: ConstantKey.fileName) as? String, "test.jpg")
-            XCTAssertEqual(result.value(forKey: ConstantKey.time) as? Int16, 30)
-            XCTAssertEqual(result.value(forKey: ConstantKey.url) as? String, "https://example.com")
-        } catch {
-            XCTFail("error not expected")
-        }
-    }
-    func testWhenCreateDataThenExpectFetchingData() {
-        let managedContext = persistentContainer.newBackgroundContext()
-        managedContext.performAndWait {
-            model.createData(data: FakeDataCoreData.recipie)
-        }
-        model.getData { results in
-            guard let result = results.first else { return }
-            XCTAssertEqual(result.value(forKey: ConstantKey.title) as? String, "Test")
-            XCTAssertEqual(result.value(forKey: ConstantKey.time) as? Int16, 2)
-            XCTAssertEqual(result.value(forKey: ConstantKey.ingredients) as? String, "salade\ntomate\n")
-            XCTAssertEqual(result.value(forKey: ConstantKey.fileName) as? String, "test.jpg")
-            XCTAssertEqual(result.value(forKey: ConstantKey.yield) as? Int16, 30)
-            XCTAssertEqual(result.value(forKey: ConstantKey.url) as? String, "https://example.com")
-        }
-    }
-    func testWhenCreateDataThenWithInvalidDataShouldThrowError() {
-        let invalidData = FakeDataCoreData.recipeKO
-            model.createData(data: invalidData)
-            XCTAssertNotNil(model.error)
-    }
-    func testGetData() {
-        let context = persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: context)!
-        let object1 = NSManagedObject(entity: entity, insertInto: context)
-        object1.setValue("test1", forKeyPath: "title")
-        let object2 = NSManagedObject(entity: entity, insertInto: context)
-        object2.setValue("test2", forKeyPath: "title")
-        //swiftlint: disable force_try
-        try! context.save()
-        let expectation = self.expectation(description: "callback")
-        model.getData(callback: { (result) in
-            XCTAssertEqual(result.count, 2)
-            expectation.fulfill()
-        })
-        self.waitForExpectations(timeout: 1, handler: nil)
     }
 
+    func testGivenMultipleFavorites_WhenFetchFavorite_ThenSuccess() {
+        Favorites.createFavorites(with: FakeDataCoreData.recipie, context: context)
+        Favorites.createFavorites(with: FakeDataCoreData.recipie2, context: context)
+
+        let fetchedData = Favorites.fetchFavorites(context: context)
+        XCTAssertEqual(fetchedData!.count, 2)
+    }
+
+    func testGivenExistingFavorite_WhenDeleteFavorite_ThenDeleteIsSuccess() {
+        Favorites.createFavorites(with: FakeDataCoreData.recipie, context: context)
+        // swiftlint:disable force_try
+        try! context.save()
+        Favorites.deleteFavorites(element: FakeDataCoreData.recipie.title, context: context)
+        let fetchRequest: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title == %@", FakeDataCoreData.recipie.title)
+        // swiftlint:disable force_try
+        let results = try! context.fetch(fetchRequest)
+        XCTAssert(results.isEmpty)
+    }
+
+    func testGivenExistingDataInFavorite_WhenIsExistFavorite_ThenReturnTrue() {
+        Favorites.createFavorites(with: FakeDataCoreData.recipie, context: context)
+        // swiftlint:disable force_try
+        try! context.save()
+        let favori = Favorites.isExistFavorite(element: FakeDataCoreData.recipie.title, context: context)
+        let fetchRequest: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title == %@", FakeDataCoreData.recipie.title)
+        // swiftlint:disable force_try
+        let results = try! context.fetch(fetchRequest)
+        let bool = results.count == 1 ? true : false
+        XCTAssertEqual(favori, bool)
+    }
+
+    func testGivenNonExistingDataInFavorite_WhenIsExistFavorite_ThenReturnFalse() {
+        Favorites.createFavorites(with: FakeDataCoreData.recipie, context: context)
+        // swiftlint:disable force_try
+        try! context.save()
+        let favori = Favorites.isExistFavorite(element: FakeDataCoreData.recipie2.title, context: context)
+        let fetchRequest: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title == %@", FakeDataCoreData.recipie2.title)
+        // swiftlint:disable force_try
+        let results = try! context.fetch(fetchRequest)
+        let bool = results.count == 1 ? true : false
+        XCTAssertEqual(favori, bool)
+    }
 }

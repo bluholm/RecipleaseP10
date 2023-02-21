@@ -14,7 +14,6 @@ final class FavoriteViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     private let cellIdentifier = "cellFavoritesIdentification"
-    private let repository = FavoritesRepository()
     private var favoritesList: [Favorites] = []
     
     // MARK: - Life Cycle Method
@@ -63,7 +62,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let favori = favoritesList[indexPath.row].title {
-                repository.deleteFiles(favoritesList[indexPath.row].fileName)
+                DocumentsDirectoryRepository().deleteFiles(favoritesList[indexPath.row].fileName)
                 Favorites.deleteFavorites(element: favori, context: AppDelegate.context)
                 favoritesList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)

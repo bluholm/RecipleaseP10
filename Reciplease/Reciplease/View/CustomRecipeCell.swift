@@ -36,7 +36,6 @@ class CustomRecipeCell: UITableViewCell {
             
             imageBackground.loadFiles(from: fileName)
             
-            
         } else {
             imageBackground.load(from: imageURL)
         }

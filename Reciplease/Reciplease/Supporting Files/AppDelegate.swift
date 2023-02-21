@@ -11,8 +11,6 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -61,5 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // swiftlint:disable force_cast
+    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
 }

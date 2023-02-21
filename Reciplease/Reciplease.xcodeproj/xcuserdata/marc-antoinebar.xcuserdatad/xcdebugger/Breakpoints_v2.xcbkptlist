@@ -7,159 +7,111 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F8E9601E-B8F3-4C03-85C4-F2B3EAF4C440"
+            uuid = "7D8C4045-2BFD-4F01-90E6-F58C68E49231"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipleaseTests/CoreDataTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "testMyEntityFunctionality()"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "testWhenOneDataIsExistFavoriteReturnTrue()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "918243B1-8341-4EEB-A7AB-E32A7687EB1F"
+            uuid = "1D5683DA-4ECE-4B18-A50D-2AA7D159635B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecipleaseTests/CoreDataTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "flushData()"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "tearDown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "906DCAEA-0E4B-4BDA-81F3-1C029912AC7D"
+            uuid = "7E409CC7-D260-42E1-9E6E-A57097A4570D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reciplease/Model/CoreData/FavoritesManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "createFavorites(with:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7D112D03-3E2D-413D-A5E4-8CCED43285FC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Reciplease/Model/CoreData/FavoritesManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "createFavorites(with:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "70BCAE37-9770-4941-93F7-95695A0BC05E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Reciplease/View/CustomRecipeCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "configure(fileName:imageURL:title:subtitle:yield:time:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E3DEC9B9-88F4-467A-8FE0-41CEBECF7521"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Reciplease/View/CustomRecipeCell.swift"
+            filePath = "RecipleaseTests/CoreDataTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "configure(fileName:imageURL:title:subtitle:yield:time:)"
+            landmarkName = "tearDown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "895FCE72-5B75-4DD6-B547-BB41BEF26139"
+            uuid = "917DEABF-DB82-4858-96D6-E3E38133AE45"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reciplease/View/CustomRecipeCell.swift"
+            filePath = "RecipleaseTests/CoreDataTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "configure(fileName:imageURL:title:subtitle:yield:time:)"
+            landmarkName = "tearDown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D0428438-3739-47D0-8294-7F98049339A9"
+            uuid = "C06B1FF9-9438-48AC-A2F3-D1D980C2288D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reciplease/Model/Network/RecipiesService.swift"
+            filePath = "Reciplease/Model/CoreData/DocumentsDirectoryRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "getRecipes(url:completionHandler:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "saveFiles(url:fileName:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D0428438-3739-47D0-8294-7F98049339A9 - 4a5b00346a5db7ec"
+                  uuid = "C06B1FF9-9438-48AC-A2F3-D1D980C2288D - b117f42cead2e2ee"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Reciplease.RecipiesService.getRecipes(url: Swift.String, completionHandler: (Swift.Result&lt;Reciplease.Recipies, Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Reciplease.DocumentsDirectoryRepository.saveFiles(url: Swift.String, fileName: Swift.String) -&gt; ()"
                   moduleName = "Reciplease"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marc-antoinebar/My%20Mac/swift/OpenClassroom/Official/Reciplease_OC_P10/Reciplease/Reciplease/Model/Network/RecipiesService.swift"
+                  urlString = "file:///Users/marc-antoinebar/My%20Mac/swift/OpenClassroom/Official/Reciplease_OC_P10/Reciplease/Reciplease/Model/CoreData/DocumentsDirectoryRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "248">
                </Location>
                <Location
-                  uuid = "D0428438-3739-47D0-8294-7F98049339A9 - b63730564ac6df6e"
+                  uuid = "C06B1FF9-9438-48AC-A2F3-D1D980C2288D - b117f42cead2e2ee"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Reciplease.Recipies, Alamofire.AFError&gt;) -&gt; () in Reciplease.RecipiesService.getRecipes(url: Swift.String, completionHandler: (Swift.Result&lt;Reciplease.Recipies, Alamofire.AFError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Reciplease.DocumentsDirectoryRepository.saveFiles(url: Swift.String, fileName: Swift.String) -&gt; ()"
                   moduleName = "Reciplease"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marc-antoinebar/My%20Mac/swift/OpenClassroom/Official/Reciplease_OC_P10/Reciplease/Reciplease/Model/Network/RecipiesService.swift"
+                  urlString = "file:///Users/marc-antoinebar/My%20Mac/swift/OpenClassroom/Official/Reciplease_OC_P10/Reciplease/Reciplease/Model/CoreData/DocumentsDirectoryRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "268">
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "456">
                </Location>
             </Locations>
          </BreakpointContent>
