@@ -28,15 +28,17 @@ class CustomRecipeCell: UITableViewCell {
     // MARK: - Pubic
     // swiftlint: disable function_parameter_count
     func configure(fileName: String, imageURL: String, title: String, subtitle: String, yield: String, time: String) {
-        if imageURL.isEmpty {
-            imageBackground.loadFiles(from: fileName)
-            
-        } else {
-            imageBackground.load(from: imageURL)
-        }
         titleLabel.text = title
         subtitleLabel.text = subtitle
         noteLabel.text = yield
         timeLabel.text = time
+        if imageURL.isEmpty {
+            
+            imageBackground.loadFiles(from: fileName)
+            
+            
+        } else {
+            imageBackground.load(from: imageURL)
+        }
     }
 }

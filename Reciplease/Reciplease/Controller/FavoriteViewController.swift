@@ -15,43 +15,40 @@ final class FavoriteViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     private let cellIdentifier = "cellFavoritesIdentification"
     private let repository = FavoritesRepository()
-    private var favorites: [NSManagedObject] = []
+    private var favoritesList: [Favorites] = []
     
     // MARK: - Life Cycle Method
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getData()
+        self.loadData()
     }
     
     // MARK: - Privates Methods
-    
-    func getData() {
-        repository.getData { data in
-            self.favorites = data
+    func loadData() {
+        if let favorites = Favorites.fetchFavorites(context: AppDelegate.context) {
+            favoritesList = favorites
         }
         tableView.reloadData()
     }
 }
 
 // MARK: - Extensions UITableViewDelegate UITableViewController
-
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites.count
+        return favoritesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomRecipeCell else {
            return UITableViewCell()
         }
-        let favori = favorites[indexPath.row]
-        let title = favori.value(forKey: ConstantKey.title) as? String ?? ""
-        let fileName = favori.value(forKey: ConstantKey.fileName) as? String ?? ""
-        let ingredients = favori.value(forKey: ConstantKey.ingredients) as? String ?? ""
-        let time = favori.value(forKey: ConstantKey.time) as? Int ?? 0
-        let yield = favori.value(forKey: ConstantKey.yield) as? Int ?? 0
+        let favori = favoritesList[indexPath.row]
+        let title = favori.title ?? ""
+        let fileName = favori.fileName ?? ""
+        let ingredients = favori.ingredients ?? ""
+        let time = favori.time
+        let yield = favori.yield
         let imageURL = ""
         cell.configure(fileName: fileName, imageURL: imageURL, title: title, subtitle: ingredients, yield: String(yield), time: String(time))
         return cell
@@ -59,16 +56,18 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "resume") as? DetailViewController {
-            vc.recipeNS = favorites[indexPath.row]
+            vc.favori = favoritesList[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let favori = favorites[indexPath.row]
-            repository.deleteData(data: favori)
-            favorites.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let favori = favoritesList[indexPath.row].title {
+                repository.deleteFiles(favoritesList[indexPath.row].fileName)
+                Favorites.deleteFavorites(element: favori, context: AppDelegate.context)
+                favoritesList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         }
     }
 }

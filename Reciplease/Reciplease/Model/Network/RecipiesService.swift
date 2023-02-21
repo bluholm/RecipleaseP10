@@ -47,6 +47,7 @@ final class RecipiesService {
     }
     
     func getRecipes(url: String, completionHandler: @escaping (Result<Recipies, AFError>) -> Void) {
+        
         session.request(url).responseDecodable(of: Recipies.self) { response in
             switch response.result {
             case .success(let edaman):

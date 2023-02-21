@@ -19,8 +19,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var yieldLabel: UILabel!
     @IBOutlet var ingredientTextView: UITextView!
     @IBOutlet var titleLabel: UILabel!
-    var repository = FavoritesRepository()
-    var recipeNS = NSManagedObject()
+    var favori = Favorites()
     var recipe = Recipie(title: "", ingredients: [""], time: 0, fileName: "", imageurl: "", yield: 0, url: "")
     
     // MARK: - Life Cycle Method
@@ -33,7 +32,7 @@ final class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if recipe.title == "" {
-           transferDataFromNSManagedObject()
+           createRecipeWithFavori()
         }
         self.loadRecipe()
         self.updateFavoriteIcon()
@@ -42,11 +41,11 @@ final class DetailViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func favoriteButtonDidTapped(_ sender: Any) {
-        if repository.isDataExist(title: recipe.title) {
-           repository.deleteData(data: recipeNS)
+        if Favorites.isExistFavorite(element: recipe.title, context: AppDelegate.context) {
+            Favorites.deleteFavorites(element: recipe.title, context: AppDelegate.context)
             navigationController?.popViewController(animated: true)
         } else {
-            repository.createData(data: recipe)
+            Favorites.createFavorites(with: recipe, context: AppDelegate.context)
             self.loadRecipe()
             self.updateFavoriteIcon()
         }
@@ -60,7 +59,7 @@ final class DetailViewController: UIViewController {
     // MARK: - privates
     
     private func updateFavoriteIcon() {
-        if repository.isDataExist(title: recipe.title) {
+        if Favorites.isExistFavorite(element: recipe.title, context: AppDelegate.context) {
             favoriteNavigationBarIcon.image = UIImage(systemName: "star.fill")
         } else {
             favoriteNavigationBarIcon.image = UIImage(systemName: "star")
@@ -70,24 +69,22 @@ final class DetailViewController: UIViewController {
     private func loadRecipe() {
         titleLabel.text = recipe.title
         ingredientTextView.text = recipe.ingredients.map { $0+"\n" }.joined()
-        
+        timeLabel.text = String(recipe.time)+"m"
+        yieldLabel.text = String(recipe.yield)
         if recipe.imageurl.isEmpty {
             imageView.loadFiles(from: recipe.fileName)
         } else {
             imageView.load(from: recipe.imageurl)
         }
-         
-        timeLabel.text = String(recipe.time)
-        yieldLabel.text = String(recipe.yield)
     }
     
-    private func transferDataFromNSManagedObject() {
-        recipe.title  = recipeNS.value(forKey: ConstantKey.title) as? String ?? ""
-        let ingredient = recipeNS.value(forKey: ConstantKey.ingredients) as? String ?? ""
-        recipe.ingredients  = ingredient.components(separatedBy: "\n")
-        recipe.time = recipeNS.value(forKey: ConstantKey.time) as? Int ?? 0
-        recipe.yield = recipeNS.value(forKey: ConstantKey.yield) as? Int ?? 0
-        recipe.fileName = recipeNS.value(forKey: ConstantKey.fileName) as? String ?? ""
+    private func createRecipeWithFavori() {
+        recipe.title  = favori.title ?? ""
+        let ingredient = favori.ingredients
+        recipe.ingredients  = ingredient?.components(separatedBy: "\n") ?? [""]
+        recipe.time = Int(favori.time)
+        recipe.yield = Int(favori.yield)
+        recipe.fileName = favori.fileName ?? ""
     }
     
 }
